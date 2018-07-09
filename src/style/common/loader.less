@@ -1,0 +1,66 @@
+// loading样式
+.sys-loader {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    // line-height: 90vh;
+    z-index: 99;
+    // background-color: #000;
+
+    .wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    @bgColor: #000;
+
+    .top {
+        position: absolute;
+        width: 100%;
+        height: 50%;
+        top: 0;
+        z-index: 1;
+        background-color: @bgColor;
+    }
+
+    .bottom {
+        position: absolute;
+        width: 100%;
+        height: 50%;
+        bottom: 0;
+        z-index: 1;
+        background-color: @bgColor;
+    }
+
+    .container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .loading {
+        align-items: center;
+    }
+
+    .text {
+        width: 100%;
+        height: 20px;
+        bottom: 30px; /*no*/
+        font-size: 14px;
+
+        span {
+            color: #fff;
+            font-size: 10px; /*no*/
+        }
+    }
+}

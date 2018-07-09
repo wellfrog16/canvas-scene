@@ -20,7 +20,7 @@ define([
         // 如果是手机端，加载横屏提示
         if (!sword.isPC) { world.lakers.$block.mount(); }
 
-        world.lakers.$music.mount(false);
+        // world.lakers.$music.mount(false);
         world.lakers.$loader.mount(() => {
             console.log('回调');
             // world.lakers.$video.mount($('body'));
