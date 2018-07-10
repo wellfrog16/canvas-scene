@@ -137,7 +137,7 @@ gulp.task('move-style', ['stylelint'], () => {
             [
                 px2rem({
                     baseDpr: 1,
-                    remUnit: 64
+                    remUnit: 75
                 })
             ]
         ))

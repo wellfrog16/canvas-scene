@@ -12,9 +12,9 @@ define(['jquery'], ($) => {
             // }
         });
 
-        jQuery.easing['jswing'] = jQuery.easing['swing'];
+        $.easing['jswing'] = $.easing['swing'];
 
-        jQuery.extend(jQuery.easing, {
+        $.extend($.easing, {
             def: 'easeOutQuad',
             swing: function(x, t, b, c, d) {
                 // alert(jQuery.easing.default);

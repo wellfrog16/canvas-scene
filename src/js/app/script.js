@@ -6,7 +6,7 @@ define([
     'music',
     'loader',
     'video',
-    'index',
+    'tab',
     'utils/sword'],
 ($) => {
     return () => {
@@ -15,7 +15,7 @@ define([
         // 加载jquery插件
         sword.jqueryPlugins();
         // 自动修正rem
-        sword.fixRem();
+        sword.fixRem(750, 75);
 
         // 如果是手机端，加载横屏提示
         if (!sword.isPC) { world.lakers.$block.mount(); }
@@ -24,7 +24,7 @@ define([
         world.lakers.$loader.mount(() => {
             console.log('回调');
             // world.lakers.$video.mount($('body'));
-            world.rivers.$index.mount();
+            world.rivers.$tab.mount();
         });
     };
 });

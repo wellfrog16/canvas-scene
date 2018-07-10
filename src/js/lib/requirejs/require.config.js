@@ -44,8 +44,8 @@
         // // 轮播
         // 'slick': 'lib/slick/slick',
 
-        // // 滚动条
-        // 'iscroll': 'lib/iscroll/iscroll-5.2.0',
+        // 滚动条
+        'iscroll': 'lib/iscroll/iscroll-5.2.0',
 
         // helper
         // 'utils': 'utils/helper',
@@ -66,6 +66,7 @@
 
         'source' : 'app/source',
         'index' : 'app/usr/index',
+        'tab' : 'app/usr/tab',
 
         'script': 'app/script',
     },
