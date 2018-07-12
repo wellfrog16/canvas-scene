@@ -7,6 +7,7 @@ define([
     'loader',
     'video',
     'tab',
+    'scene',
     'utils/sword'],
 ($) => {
     return () => {
@@ -25,6 +26,7 @@ define([
             console.log('回调');
             // world.lakers.$video.mount($('body'));
             world.rivers.$tab.mount();
+            world.rivers.$scene.mount();
         });
     };
 });

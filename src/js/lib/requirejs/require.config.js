@@ -66,6 +66,7 @@
 
         'source' : 'app/source',
         'index' : 'app/usr/index',
+        'scene' : 'app/usr/scene',
         'tab' : 'app/usr/tab',
 
         'script': 'app/script',
