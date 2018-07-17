@@ -49,15 +49,17 @@ define([
             const oContent = $(`${root} .content .container`);
             const baseUrl = './assets/img/main';
 
-            for (const item of items) {
+            for (const [key, item] of items) {
                 const title = $(`<li>${item.title.name}</li>`);
                 oTtile.append(title);
 
                 const content = $('<ul></ul>');
                 for (let i = 0; i < 8; i++) {
-                    for (const pic of item.items) {
-                        content.append(`<li><img src="${baseUrl}/${pic.src}"></li>`);
+                    for (const index in item.items) {
+                        content.append(`<li><img data-key="${key}" data-index="${index}" src="${baseUrl}/${item.items[index].src}"></li>`);
                     }
+
+                    if (item.items.length > 3) { i = 10; }
                 }
                 oContent.append(content);
             }

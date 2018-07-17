@@ -3,9 +3,7 @@
 define([
     'jquery',
     'block',
-    'music',
     'loader',
-    'video',
     'tab',
     'scene',
     'utils/sword'],
