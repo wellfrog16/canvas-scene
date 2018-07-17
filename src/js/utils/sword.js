@@ -177,6 +177,10 @@ define(['jquery'], ($) => {
         return /android/.test(navigator.userAgent.toLowerCase()) ? 'android' : 'iphone';
     })();
 
+    self.isIphoneX = (() => {
+        return /iphone/gi.test(navigator.userAgent) && (screen.height === 812 && screen.width === 375);
+    })();
+
     // 是否PC端简单判断23
     self.isPC = (() => {
         var Agents = ['Android', 'iPhone', 'SymbianOS', 'Windows Phone', 'iPad', 'iPod'];

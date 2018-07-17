@@ -35,7 +35,10 @@ define([
         // canvas.attr('width', $('body').width());
         // canvas.attr('height', $('body').height());
 
-        app = new PIXI.Application($('body').width(), $('body').height(), {transparent: true});
+        const w = $('body').width();
+        const h = world.sword.isIphoneX ? '667' : $('body').height();
+
+        app = new PIXI.Application(w, h, {transparent: true});
         this.$root.get(0).appendChild(app.view);
 
         this.setDefault();
