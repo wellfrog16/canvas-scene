@@ -17,6 +17,7 @@ define([
 
     let bg = null;
     let app = null;
+    // let sort = 1;
 
     // 挂载
     river.mount = function(index) {
@@ -74,6 +75,10 @@ define([
                 if (key === 'bg') {
                     bg.texture = PIXI.Texture.fromImage(`${baseUrl}/${obj.src}`);
                 }
+
+                if (key === 'item01') {
+                    createItem(obj);
+                }
             });
         }
     };
@@ -94,4 +99,64 @@ define([
 
     world.rivers.$scene = river;
     return river;
+
+    function createItem(obj) {
+        const container = new PIXI.Container();
+        // container.zOrder = +sort;
+
+        app.stage.addChild(container);
+        // 写入元素
+        let item = new PIXI.Sprite(PIXI.Texture.fromImage(`${baseUrl}/${obj.src}`));
+        item.anchor.set(0.5);
+        item.x = app.screen.width / 2;
+        item.y = app.screen.height / 2;
+        item.width = 100;
+        item.height = 100;
+        item.interactive = true;
+        item.buttonMode = true;
+
+        //
+        // graphics.clear();
+        let graphics = new PIXI.Graphics();
+        container.addChild(graphics);
+        graphics.lineStyle(2, 0xffff00, 1.0);
+        graphics.drawShape(item.getBounds());
+
+        //
+        item
+            .on('pointerdown', onDragStart)
+            .on('pointerup', onDragEnd)
+            .on('pointerupoutside', onDragEnd)
+            .on('pointermove', onDragMove);
+
+        container.addChild(item);
+
+        function onDragStart(event) {
+            // store a reference to the data
+            // the reason for this is because of multitouch
+            // we want to track the movement of this particular touch
+            this.data = event.data;
+            this.alpha = 0.5;
+            this.dragging = true;
+            // container.zOrder = +sort;
+        }
+
+        function onDragEnd() {
+            this.alpha = 1;
+            this.dragging = false;
+            // set the interaction data to null
+            this.data = null;
+        }
+
+        function onDragMove() {
+            if (this.dragging) {
+                var newPosition = this.data.getLocalPosition(this.parent);
+                this.x = newPosition.x;
+                this.y = newPosition.y;
+                graphics.clear();
+                graphics.lineStyle(2, 0xffff00, 1.0);
+                graphics.drawShape(this.getBounds());
+            }
+        }
+    }
 });
